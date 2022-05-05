@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
 import domain.DoublyLinkedList;
@@ -10,11 +5,17 @@ import domain.SinglyLinkedList;
 import domain.CircularLinkedList;
 import domain.CircularDoublyLinkedList;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Random;
 
 /**
  *
  * @author Profesor Lic. Gilberth Chaves Avila
+ * Claudia Ulloa Campabadal
  */
 public class Utility {
     private static SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
@@ -22,6 +23,25 @@ public class Utility {
     private static CircularLinkedList circularLinkedList = new CircularLinkedList();
     private static CircularDoublyLinkedList circularDoublyLinkedList = new CircularDoublyLinkedList();
 
+    public static String format(double value){
+        return new DecimalFormat("###,###,###,###.##")
+                .format(value);
+    }
+    
+    public static String $format(double value){
+        return new DecimalFormat("$###,###,###,###.##")
+                .format(value);
+    }
+     public static String perFormat(double value){
+         //#,##0.00 '%'
+        return new DecimalFormat("#,##0.00'%'")
+                .format(value);
+    }
+     
+    public static String dateFormat(Date value) {
+        return new SimpleDateFormat("dd/MM/yyyy")
+                .format(value);
+    }
     public static SinglyLinkedList getSinglyLinkedList() {
         return singlyLinkedList;
     }
@@ -65,20 +85,10 @@ public class Utility {
         return 1+(int) Math.floor(Math.random()*bound); 
     }
     
-    public static String format(double value){
-        return new DecimalFormat("###,###,###,###.##")
-                .format(value);
+    public static int random(int lowBound, int highBound) {
+        return lowBound+(int) Math.floor(Math.random()*highBound); 
     }
-    
-    public static String $format(double value){
-        return new DecimalFormat("$###,###,###,###.##")
-                .format(value);
-    }
-     public static String perFormat(double value){
-         //#,##0.00 '%'
-        return new DecimalFormat("#,##0.00'%'")
-                .format(value);
-    }
+
     
     public static void fill(int a[]) {
         Random random = new Random();
@@ -164,6 +174,13 @@ public class Utility {
                 return a3.compareTo(a3)>0;
         }
         return false;
+    }
+    
+     public static int getAge(Date birthday) {
+        LocalDate hoy = LocalDate.now();
+        LocalDate nacimiento = birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        long edad = ChronoUnit.YEARS.between(nacimiento, hoy);
+        return (int) edad;
     }
      
     

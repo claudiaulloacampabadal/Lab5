@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FXMLJobPositionController">
+   <top>
+      <Pane prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="24.0" layoutY="20.0" text="Job Positions List (with estimate Monthly Wage">
+               <font>
+                  <Font name="Arial" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <TableView fx:id="jobPositionTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="descriptionTableColumn" prefWidth="386.39994049072266" text="Description" />
+            <TableColumn fx:id="hourlyWageTableColumn" prefWidth="112.00003051757812" text="Hourly Wage" />
+            <TableColumn fx:id="totalHoursTableColumn" prefWidth="128.800048828125" text="Total Hours" />
+            <TableColumn fx:id="monthlyWageTableColumn" prefWidth="178.39996337890625" text="Monthly Wage" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <Pane prefHeight="86.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="50.0" prefWidth="114.0" text="Add">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font></Button>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
